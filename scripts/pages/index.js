@@ -43,7 +43,6 @@
     
     // init();
     
-    const mediaData = [];
     const photographersData = [];
     
     async function getPhotographers() {
@@ -54,7 +53,6 @@
                 createPhotographerCard();
             })
             .catch(error => console.log(error));
-            console.log(photographersData);
     }
 
     getPhotographers();
@@ -65,7 +63,7 @@
         photographersData[0].map(item => {
             const {name,portrait,city,country,tagline,price,id} = item;
             template += `<article>
-            <a href="./photographer.html/${id}">
+            <a href="./photographer.html?id=${id}">
                 <img src="./assets/photographers/${portrait}" alt=${name}>
                 <h2>${name}</h2>
             </a>
@@ -76,15 +74,4 @@
         });
         section.innerHTML = template;
     }
-
-
-    // async function getMedia() {
-    //     await fetch("../../data/photographers.json")
-    //         .then(response => response.json())
-    //         .then(data => mediaData.push(data.media))
-    //         .catch(error => console.log(error));
-    //         console.log(mediaData);
-    // }
-
-    // getMedia();
 

@@ -111,9 +111,22 @@ h1 {
 }
 
 .photograph-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background-color: #FAFAFA;
   height: 300px;
   margin: 0 100px;
+}
+.photograph-header img {
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-left: auto;
+}
+.photograph-header button {
+  margin-right: 10rem;
 }
 
 .contact_button {

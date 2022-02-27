@@ -1,7 +1,22 @@
 .photograph-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     background-color: $photographer-header;
     height: 300px;
     margin: 0 100px;
+
+    img {
+        height: 200px;
+        width: 200px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-left: auto;
+    }
+
+    button {
+        margin-right: 10rem;
+    }
 }
 
 .contact_button {
@@ -16,3 +31,5 @@
     border-radius: 5px;
     cursor: pointer;
 }
+
+
