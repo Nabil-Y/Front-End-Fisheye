@@ -65,8 +65,8 @@
         photographersData[0].map(item => {
             const {name,portrait,city,country,tagline,price,id} = item;
             template += `<article>
-            <a href="../../photographer.html/${id}">
-                <img src="../../assets/photographers/${portrait}" alt=${name}>
+            <a href="./photographer.html/${id}">
+                <img src="./assets/photographers/${portrait}" alt=${name}>
                 <h2>${name}</h2>
             </a>
             <p class="location">${city}, ${country}</p>
