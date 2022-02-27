@@ -1,0 +1,24 @@
+{
+  "dependencies": {
+    "sass": "^1.49.9"
+  },
+  "name": "front-end-fisheye",
+  "description": "Rien à installer ici, il suffit d'ouvrir le fichier `index.html`.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "sass --watch ./sass/_style.scss ./sass/style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nabil-Y/Front-End-Fisheye.git"
+  },
+  "author": "Nabil-y",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nabil-Y/Front-End-Fisheye/issues"
+  },
+  "homepage": "https://github.com/Nabil-Y/Front-End-Fisheye#readme"
+}
