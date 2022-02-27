@@ -47,7 +47,7 @@
     const photographersData = [];
     
     async function getPhotographers() {
-        await fetch("../../data/photographers.json")
+        await fetch("./data/photographers.json")
             .then(response => response.json())
             .then(data => {
                 photographersData.push(data.photographers)
@@ -69,7 +69,7 @@
                 <img src="../../assets/photographers/${portrait}" alt=${name}>
                 <h2>${name}</h2>
             </a>
-            <p class="location">${city},${country}</p>
+            <p class="location">${city}, ${country}</p>
             <p>${tagline}</p>
             <p class="price">${price}€/jour</p>
             </article>`
