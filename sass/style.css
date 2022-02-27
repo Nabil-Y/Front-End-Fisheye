@@ -1,5 +1,88 @@
 /* Variables */
 /* Mixins */
+.center-all, .photographer_section article a, .photographer_section article {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul,
+ol {
+  list-style: none;
+  padding-left: 0;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  padding: 0;
+}
+
+/* A elements that don't have a class get default styles */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+*::before,
+*::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
 body {
   font-family: "DM Sans", sans-serif;
   margin: 0;
@@ -11,6 +94,10 @@ header {
   justify-content: space-between;
   align-items: center;
   height: 90px;
+}
+
+main {
+  margin-bottom: 3rem;
 }
 
 h1 {
@@ -48,23 +135,31 @@ h1 {
   gap: 70px;
   margin-top: 100px;
 }
-
 .photographer_section article {
   justify-self: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+.photographer_section article a {
+  justify-self: center;
   flex-direction: column;
 }
-
-.photographer_section article h2 {
+.photographer_section article a h2 {
   color: #D3573C;
   font-size: 36px;
 }
-
-.photographer_section article img {
+.photographer_section article a img {
+  margin-bottom: 2rem;
   height: 200px;
   width: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.photographer_section article .location {
+  color: #901C1C;
+}
+.photographer_section article .price {
+  color: #757575;
 }
 
 #contact_modal {

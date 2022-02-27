@@ -3,22 +3,37 @@
     grid-template-columns: 1fr 1fr 1fr;
     gap: 70px;
     margin-top: 100px;
-}
 
-.photographer_section article {
-    justify-self: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
+    article {
+        @extend .center-all;
+        justify-self: center;
+        flex-direction: column;
+        text-align: center;
 
-.photographer_section article h2 {
-    color: $secondary-color-text;
-    font-size: 36px;
-}
+        a {
+            @extend .center-all;
+            justify-self: center;
+            flex-direction: column;
+            h2 {
+                color: $secondary-color-text;
+                font-size: 36px;
+            }
+            
+            img {
+                margin-bottom: 2rem;
+                height: 200px;
+                width: 200px;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+        }
 
-.photographer_section article img {
-    height: 200px;
-    width: 200px;
+        .location {
+            color: $primary-color;
+        }
+
+        .price {
+            color: $grey;
+        }
+    }  
 }
