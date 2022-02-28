@@ -116,7 +116,7 @@ h1 {
   align-items: center;
   background-color: #FAFAFA;
   height: 300px;
-  margin: 0 100px;
+  margin: 0 150px;
 }
 .photograph-header img {
   height: 200px;
@@ -140,6 +140,23 @@ h1 {
   background-color: #901C1C;
   border-radius: 5px;
   cursor: pointer;
+}
+
+.filter {
+  margin: 0 100px;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  right: 2rem;
+  width: 200px;
+  padding: 0.5rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  background: #DB8876;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
 
 .photographer_section {

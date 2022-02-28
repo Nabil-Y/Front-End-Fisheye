@@ -4,7 +4,7 @@
     align-items: center;
     background-color: $photographer-header;
     height: 300px;
-    margin: 0 100px;
+    margin: 0 150px;
 
     img {
         height: 200px;
@@ -32,4 +32,19 @@
     cursor: pointer;
 }
 
+.filter {
+    margin: 0 100px;
+}
 
+footer {
+    position: fixed;
+    bottom: 0;
+    right: 2rem;
+    width: 200px;
+    padding: 0.5rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    background: $secondary-color-bg;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
