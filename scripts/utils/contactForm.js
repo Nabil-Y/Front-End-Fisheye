@@ -10,3 +10,8 @@ function closeModal() {
     const modal = document.getElementById("contact_modal");
     modal.style.display = "none";
 }
+
+document.getElementById("contact-form").addEventListener("submit", (event) => {
+    event.preventDefault();
+    document.querySelectorAll("form input").forEach(input => console.log(input.value) );
+})

@@ -36,10 +36,11 @@
             <option value="Titre">Titre</option>
         </select>
       </div>
+      <div class="gallery-section"></div>
     </main>
     <footer>
-      <div id="like-counter">Mock text</div>
-      <div id="price">300/jour</div>
+      <div id="like-counter"></div>
+      <div id="price"></div>
     </footer>
     <div id="contact_modal">
 			<div class="modal">
@@ -47,7 +48,7 @@
           <h2>Contactez-moi</h2>
           <img src="./assets/icons/close.svg" id="closeModal"/>
         </header>
-				<form>
+				<form id="contact-form">
 					<div>
 						<label>Prénom</label>
 						<input />
@@ -64,11 +65,15 @@
 						<label>Votre message</label>
 						<input />
 					</div>
-          <button class="contact_button">Envoyer</button>
+          <button class="contact_button" type="submit">Envoyer</button>
 				</form>
 			</div>
 		</div>
+    <script src="./scripts/factories/photographer.js"></script>
     <script src="./scripts/pages/photographer.js"></script>
+    <script src="./scripts/templates/gallery.js"></script>
     <script src="./scripts/utils/contactForm.js"></script>
   </body>
 </html>
+
+
