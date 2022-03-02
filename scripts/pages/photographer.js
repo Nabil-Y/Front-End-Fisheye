@@ -5,6 +5,7 @@ const photographerData = [];
 const photographerMedia = [];
 
 let likeCounter = 0;
+let template = "";
 
 async function getPhotographers() {
     await fetch("./data/photographers.json")
@@ -40,10 +41,6 @@ async function getMedia() {
 }
 
 
-getPhotographers();
-getMedia();
-
-
 function completePhotographerCard() {
     const {name, city, country, tagline, portrait} = photographerData[0];
     const img = document.createElement("img");
@@ -62,35 +59,11 @@ function completeFooter() {
 }
 
 
-
-
 function createGalleryCard() {
-    let template = "";
     const section = document.querySelector(".gallery-section");
-    photographerMedia.map(media => {
-        if (media.image) {
-            const {title,likes,image,photographerId} = media;
-            template += `
-            <article class="card">
-            <img src="./assets/images/${getPhotographerName(photographerId)}/${image}" />
-            <div class="gallery-info">
-            <h3>${title}</h3>
-            <div>${likes}</div>
-            </div>
-            </article>
-            `
-        } else {
-            const {title,likes,video,photographerId} = media;
-            template += `
-            <article class="card">
-            <video src="./assets/images/${getPhotographerName(photographerId)}/${video}" controls ></video>
-            <div class="gallery-info">
-            <h3>${title}</h3>
-            <div>${likes}</div>
-            </div>
-            </article>
-            `
-        }
+    photographerMedia.forEach( media => {
+        const newMedia = new MediaFactory(media);
+        template += newMedia.createHTML();
     });
     section.innerHTML = template;
 }
@@ -120,3 +93,46 @@ function getPhotographerName(id) {
         break;
     }
 }
+
+document.getElementById("filter-select").addEventListener("input", updateGallery);
+
+function updateGallery() {
+    const newFilter = document.getElementById("filter-select").value;
+    switch(newFilter) {
+        case "Popularité":
+            return photographerMedia.sort( (a,b) => {
+                const x=a[likes], y=b[likes];
+                return x-y;
+            });
+        break;
+        case "Date":
+            return photographerMedia.sort( (a,b) => {
+                const x=a[Date.parse(date)], y=b[Date.parse(date)];
+                return x-y;
+            });
+        break;
+        case "Titre":
+            return photographerMedia.sort( (a,b) => {
+                const x=a[title], y=b[titles];
+                return x-y;
+            });
+        break;
+        default:
+            return console.log("Error, invalid filter value");
+        break;
+    }  
+}
+
+function sortByKey(array,key) {
+    return array.sort( (a,b) => {
+        const x=a[key], y=b[key];
+        return x-y;
+    })
+}
+
+function init() {  
+    getPhotographers();
+    getMedia(); 
+}
+
+init();
