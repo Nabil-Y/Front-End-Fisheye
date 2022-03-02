@@ -10,7 +10,7 @@ class PhotographerFactory {
         this.portrait = data.portrait;
     }
 
-    createHTML() {
+    createHomeHTML() {
         return `<article>
         <a href="./photographer.html?id=${this.id}">
             <img src="./assets/photographers/${this.portrait}" alt=${this.name}>
@@ -20,6 +20,19 @@ class PhotographerFactory {
         <p>${this.tagline}</p>
         <p class="price">${this.price}€/jour</p>
         </article>`
+    }
+
+    createProfileHTML() {
+            return `<div>
+            <h1>${this.name}</h1>
+            <p>${this.city}, ${this.country}</p>
+            <p>${this.tagline}</p>
+          </div>
+          <button class="contact_button" id="openModal">Contactez-moi</button>
+          <div id="photographerImage">
+              <img src="./assets/photographers/${this.name.replaceAll(" ","")}.jpg" alt="${this.name}">
+          </div>
+  `
     }
 }
 

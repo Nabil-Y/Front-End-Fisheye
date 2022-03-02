@@ -144,7 +144,7 @@ h1 {
 }
 
 .filter {
-  margin: 0 100px;
+  margin: 50px 100px;
 }
 
 .gallery-section {
@@ -156,6 +156,7 @@ h1 {
   flex-direction: column;
   width: max(30%, 350px);
   aspect-ratio: 1/1;
+  margin-top: 2rem;
 }
 .gallery-section .card img, .gallery-section .card video {
   width: 350px;
@@ -169,7 +170,7 @@ h1 {
   margin: 1rem 0;
 }
 
-footer {
+.sticky {
   position: fixed;
   bottom: 0;
   right: 2rem;
@@ -220,6 +221,10 @@ footer {
 }
 
 .modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   border-radius: 5px;
   background-color: #DB8876;
   width: 50%;

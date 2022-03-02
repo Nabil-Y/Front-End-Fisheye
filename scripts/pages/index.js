@@ -13,12 +13,15 @@ async function getPhotographers() {
 function createPhotographerCard() {
     let template = "";
     const section = document.querySelector(".photographer_section");
-    photographersData[0].map( photographer => {
+    photographersData[0].forEach( photographer => {
         const newPhotographer = new PhotographerFactory(photographer);
-        template += newPhotographer.createHTML();
+        template += newPhotographer.createHomeHTML();
     })
     section.innerHTML = template;
 }
 
-getPhotographers();
+function init() {
+    getPhotographers();
+}
 
+init();

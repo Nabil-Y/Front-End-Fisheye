@@ -20,13 +20,6 @@
     </header>
     <main id="main">
       <div class="photograph-header">
-        <div>
-          <h1 id="photographerName"></h1>
-          <p id="photographerLocation"></p>
-          <p id="photographerTagline"></p>
-        </div>
-        <button class="contact_button" id="openModal">Contactez-moi</button>
-        <div id="photographerImage"></div>
       </div>
       <div class="filter">
         <label for="filter-select">Trier par</label>
@@ -38,10 +31,10 @@
       </div>
       <div class="gallery-section"></div>
     </main>
-    <footer>
+    <section class="sticky">
       <div id="like-counter"></div>
       <div id="price"></div>
-    </footer>
+    </section>
     <div id="contact_modal">
 			<div class="modal">
 				<header>
@@ -71,7 +64,6 @@
 		</div>
     <script src="./scripts/factories/photographerFactory.js"></script>
     <script src="./scripts/pages/photographer.js"></script>
-    <script src="./scripts/templates/gallery.js"></script>
     <script src="./scripts/utils/contactForm.js"></script>
   </body>
 </html>

@@ -33,7 +33,7 @@
 }
 
 .filter {
-    margin: 0 100px;
+    margin: 50px 100px;
 }
 
 .gallery-section {
@@ -46,6 +46,7 @@
         flex-direction: column;
         width: max(30%,350px);
         aspect-ratio: 1 / 1;
+        margin-top: 2rem;
 
         img,video {
             width: 350px;
@@ -64,7 +65,7 @@
 
 
 
-footer {
+.sticky {
     position: fixed;
     bottom: 0;
     right: 2rem;
