@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./sass/style.css" rel="stylesheet" type="text/css" />
-    <link rel="icon" href="./assets/favicon.ico">
+    <link rel="icon" href="./assets/images/favicon.ico">
 
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
     <title>Fisheye - photographe </title>
@@ -21,18 +21,20 @@
     <main id="main">
       <div class="photograph-header">
       </div>
-      <div class="filter">
-        <label for="filter-select">Trier par</label>
-        <select name="filters" id="filter-select">
-            <option selected value="Popularité">Popularité</option>
-            <option value="Date">Date</option>
-            <option value="Titre">Titre</option>
-        </select>
-      </div>
-      <div class="gallery-section"></div>
+      <section class="gallery">
+        <div class="filter">
+          <label for="filter-select">Trier par</label>
+          <select name="filters" id="filter-select">
+              <option selected value="Popularité">Popularité</option>
+              <option value="Date">Date</option>
+              <option value="Titre">Titre</option>
+          </select>
+        </div>
+        <div class="gallery-display"></div>
+      </section>
     </main>
     <section class="sticky">
-      <div id="like-counter"></div>
+      <div id="like-counter" class="likes"></div>
       <div id="price"></div>
     </section>
     <div id="contact_modal">
@@ -63,8 +65,8 @@
 			</div>
 		</div>
     <script src="./scripts/factories/photographerFactory.js"></script>
-    <script src="./scripts/pages/photographer.js"></script>
     <script src="./scripts/utils/contactForm.js"></script>
+    <script src="./scripts/pages/photographer.js"></script>
   </body>
 </html>
 

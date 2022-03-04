@@ -32,21 +32,28 @@
     cursor: pointer;
 }
 
-.filter {
+.gallery {
     margin: 50px 100px;
+    @extend .center-all;
+    flex-direction: column;
+
+    .filter {
+        align-self: flex-start;
+        margin-bottom: 2rem;
+    }
 }
 
-.gallery-section {
+.gallery-display {
     display: flex;
-    justify-content: space-between;
     flex-wrap: wrap;
+    justify-content: space-between;
 
     .card {
         @extend .center-all;
         flex-direction: column;
         width: max(30%,350px);
         aspect-ratio: 1 / 1;
-        margin-top: 2rem;
+        margin-top: 3rem;
 
         img,video {
             width: 350px;

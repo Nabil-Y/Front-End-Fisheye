@@ -28,6 +28,7 @@ function completePhotographerCard() {
     const section = document.querySelector(".photograph-header");
     const photographer = new PhotographerFactory(photographerData[0]);
     section.innerHTML = photographer.createProfileHTML();
+    document.getElementById("price").innerText = `${photographer.price}€/jour`
 }
 
 function completeSticky() {
@@ -37,7 +38,7 @@ function completeSticky() {
 
 
 function createGalleryCard() {
-    const section = document.querySelector(".gallery-section");
+    const section = document.querySelector(".gallery-display");
     photographerMedia.forEach( media => {
         const newMedia = new MediaFactory(media);
         template += newMedia.createHTML();
@@ -48,41 +49,52 @@ function createGalleryCard() {
 
 // Triage
 
-document.getElementById("filter-select").addEventListener("input", updateGallery);
+// document.getElementById("filter-select").addEventListener("input", filterGallery);
 
-function updateGallery() {
-    const newFilter = document.getElementById("filter-select").value;
-    switch(newFilter) {
-        case "Popularité":
-            return photographerMedia.sort( (a,b) => {
-                const x=a[likes], y=b[likes];
-                return x-y;
-            });
-        break;
-        case "Date":
-            return photographerMedia.sort( (a,b) => {
-                const x=a[Date.parse(date)], y=b[Date.parse(date)];
-                return x-y;
-            });
-        break;
-        case "Titre":
-            return photographerMedia.sort( (a,b) => {
-                const x=a[title], y=b[titles];
-                return x-y;
-            });
-        break;
-        default:
-            return console.log("Error, invalid filter value");
-        break;
-    }  
-}
+// function filterGallery() {
+//     const newFilter = document.getElementById("filter-select").value;
+//     switch(newFilter) {
+//         case "Popularité":
+//             return photographerMedia.sort( (a,b) => {
+//                 const x=a[likes], y=b[likes];
+//                 return x-y;
+//             });
+//         break;
+//         case "Date":
+//             return photographerMedia.sort( (a,b) => {
+//                 const x=a[Date.parse(date)], y=b[Date.parse(date)];
+//                 return x-y;
+//             });
+//         break;
+//         case "Titre":
+//             return photographerMedia.sort( (a,b) => {
+//                 const x=a[titles], y=b[titles];
+//                 return x-y;
+//             });
+//         break;
+//         default:
+//             return console.log("Error, invalid filter value");
+//         break;
+//     }  
+// }
 
-function sortByKey(array,key) {
-    return array.sort( (a,b) => {
-        const x=a[key], y=b[key];
-        return x-y;
-    })
-}
+// function sortByKey(key) {
+//     return photographerMedia.sort( (a,b) => {
+//         const x=a[key], y=b[key];
+//         return x-y;
+//     })
+// }
+
+// Likes
+
+const likeButtons = document.querySelectorAll(".likes");
+likeButtons.forEach(button => button.addEventListener("click", (button)=> {
+    if (button.getAttribute("data-like") === "true") {
+        button.setAttribute("data-like", "false")
+    } else {
+        button.setAttribute("data-like", "true")
+    }   
+} ) )
 
 
 // Initialisation
@@ -90,17 +102,18 @@ function sortByKey(array,key) {
 function usePhotoData(data) {
     photographerData.push( ...data.photographers.filter(photographer => photographer.id === photographerId ));
     completePhotographerCard();
+    createModalEvents();
 }
 
 function useMediaData(data) {
     photographerMedia.push( ...data.media.filter( content => content.photographerId === photographerId ))
     completeSticky();
-    createGalleryCard()
+    createGalleryCard();
 }
 
 function init() {  
     getPhotographers();
-    getMedia(); 
+    getMedia();
 }
 
 init();

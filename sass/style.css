@@ -1,6 +1,6 @@
 /* Variables */
 /* Mixins */
-.center-all, .photographer_section article a, .photographer_section article, .gallery-section .card {
+.center-all, .photographer_section article a, .photographer_section article, .gallery-display .card, .gallery {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -143,27 +143,32 @@ h1 {
   cursor: pointer;
 }
 
-.filter {
+.gallery {
   margin: 50px 100px;
+  flex-direction: column;
+}
+.gallery .filter {
+  align-self: flex-start;
+  margin-bottom: 2rem;
 }
 
-.gallery-section {
+.gallery-display {
   display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
+  justify-content: space-between;
 }
-.gallery-section .card {
+.gallery-display .card {
   flex-direction: column;
   width: max(30%, 350px);
   aspect-ratio: 1/1;
-  margin-top: 2rem;
+  margin-top: 3rem;
 }
-.gallery-section .card img, .gallery-section .card video {
+.gallery-display .card img, .gallery-display .card video {
   width: 350px;
   aspect-ratio: 1/1;
   object-fit: cover;
 }
-.gallery-section .gallery-info {
+.gallery-display .gallery-info {
   display: flex;
   justify-content: space-between;
   width: 350px;

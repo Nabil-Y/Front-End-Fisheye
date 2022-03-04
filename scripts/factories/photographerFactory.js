@@ -23,16 +23,16 @@ class PhotographerFactory {
     }
 
     createProfileHTML() {
-            return `<div>
-            <h1>${this.name}</h1>
-            <p>${this.city}, ${this.country}</p>
-            <p>${this.tagline}</p>
-          </div>
-          <button class="contact_button" id="openModal">Contactez-moi</button>
-          <div id="photographerImage">
-              <img src="./assets/photographers/${this.name.replaceAll(" ","")}.jpg" alt="${this.name}">
-          </div>
-  `
+        return `<div>
+        <h1>${this.name}</h1>
+        <p>${this.city}, ${this.country}</p>
+        <p>${this.tagline}</p>
+        </div>
+        <button class="contact_button" id="openModal">Contactez-moi</button>
+        <div id="photographerImage">
+            <img src="./assets/photographers/${this.portrait}" alt="${this.name}">
+        </div>
+        `
     }
 }
 
@@ -62,7 +62,7 @@ class Image {
         <img src="./assets/images/${getPhotographerName(this.photographerId)}/${this.src}" />
         <div class="gallery-info">
         <h3>${this.title}</h3>
-        <div>${this.likes}</div>
+        <div class="likes">${this.likes}</div>
         </div>
         </article>
         `
@@ -85,7 +85,7 @@ class Video {
         <video src="./assets/images/${getPhotographerName(this.photographerId)}/${this.src}" controls ></video>
         <div class="gallery-info">
         <h3>${this.title}</h3>
-        <div>${this.likes}</div>
+        <div class="likes">${this.likes}</div>
         </div>
         </article>
         `
