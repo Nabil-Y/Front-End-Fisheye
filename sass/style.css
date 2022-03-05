@@ -174,6 +174,9 @@ h1 {
   width: 350px;
   margin: 1rem 0;
 }
+.gallery-display .gallery-info .likes {
+  cursor: pointer;
+}
 
 .sticky {
   position: fixed;
@@ -240,16 +243,15 @@ h1 {
   padding: 35px;
   margin: auto;
 }
-
 .modal header {
   justify-content: space-between;
   width: 100%;
 }
-
-.modal header img {
+.modal header button {
+  background: transparent;
+  border: none;
   cursor: pointer;
 }
-
 .modal header h2 {
   font-size: 64px;
   font-weight: normal;
@@ -262,12 +264,10 @@ form {
   flex-direction: column;
   align-items: flex-start;
 }
-
 form label {
   color: #312E2E;
   font-size: 36px;
 }
-
 form div {
   display: flex;
   flex-direction: column;
@@ -275,12 +275,18 @@ form div {
   align-items: self-start;
   margin-bottom: 26px;
 }
-
 form input {
   width: 100%;
   height: 68px;
   border: none;
   border-radius: 5px;
+}
+form textarea {
+  resize: none;
+  width: 100%;
+  height: 170px;
+  border-radius: 5px;
+  border: none;
 }
 
 /*# sourceMappingURL=style.css.map */

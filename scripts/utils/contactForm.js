@@ -4,7 +4,7 @@ function createModalEvents() {
 
     document.getElementById("contact-form").addEventListener("submit", (event) => {
         event.preventDefault();
-        document.querySelectorAll("form input").forEach(input => console.log(input.value) );
+        document.querySelectorAll(".input").forEach(input => console.log(input.value) );
     })
 }
 

@@ -59,10 +59,10 @@ class Image {
     createHTML() {
         return `
         <article class="card">
-        <img src="./assets/images/${getPhotographerName(this.photographerId)}/${this.src}" />
+        <img src="./assets/images/${getPhotographerName(this.photographerId)}/${this.src}" alt="${this.title}" />
         <div class="gallery-info">
         <h3>${this.title}</h3>
-        <div class="likes">${this.likes}</div>
+        <div class="likes" data-like="false">${this.likes}</div>
         </div>
         </article>
         `
@@ -82,10 +82,10 @@ class Video {
     createHTML() {
         return `
         <article class="card">
-        <video src="./assets/images/${getPhotographerName(this.photographerId)}/${this.src}" controls ></video>
+        <video title="${this.title}" src="./assets/images/${getPhotographerName(this.photographerId)}/${this.src}" controls ></video>
         <div class="gallery-info">
         <h3>${this.title}</h3>
-        <div class="likes">${this.likes}</div>
+        <div class="likes" data-like="false">${this.likes}</div>
         </div>
         </article>
         `

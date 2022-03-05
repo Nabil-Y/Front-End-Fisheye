@@ -87,14 +87,21 @@ function createGalleryCard() {
 
 // Likes
 
-const likeButtons = document.querySelectorAll(".likes");
-likeButtons.forEach(button => button.addEventListener("click", (button)=> {
-    if (button.getAttribute("data-like") === "true") {
-        button.setAttribute("data-like", "false")
+function createLikeInteractions() {
+    const likeButtons = Array.from(document.querySelectorAll(".likes"));
+    const likeCounter = document.getElementById("like-counter");
+    likeButtons.forEach(button => button.addEventListener("click", () => {
+    if (button.getAttribute("data-like") === "false") {
+        button.setAttribute("data-like", "true");
+        button.innerText = parseInt(button.innerText) + 1 ;
+        likeCounter.innerText = parseInt(likeCounter.innerText) + 1 ;
     } else {
-        button.setAttribute("data-like", "true")
+        button.setAttribute("data-like", "false");
+        button.innerText = parseInt(button.innerText) - 1 ;
+        likeCounter.innerText = parseInt(likeCounter.innerText) - 1 ;
     }   
 } ) )
+}
 
 
 // Initialisation
@@ -109,6 +116,7 @@ function useMediaData(data) {
     photographerMedia.push( ...data.media.filter( content => content.photographerId === photographerId ))
     completeSticky();
     createGalleryCard();
+    createLikeInteractions();
 }
 
 function init() {  

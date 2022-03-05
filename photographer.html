@@ -34,31 +34,31 @@
       </section>
     </main>
     <section class="sticky">
-      <div id="like-counter" class="likes"></div>
+      <div id="like-counter"></div>
       <div id="price"></div>
     </section>
     <div id="contact_modal">
 			<div class="modal">
 				<header>
           <h2>Contactez-moi</h2>
-          <img src="./assets/icons/close.svg" id="closeModal"/>
+          <button id="closeModal"><img src="./assets/icons/close.svg" alt="Close contact form button" /></button>
         </header>
 				<form id="contact-form">
 					<div>
 						<label>Prénom</label>
-						<input />
+						<input class="input" />
 					</div>
           <div>
 						<label>Nom</label>
-						<input />
+						<input class="input" />
 					</div>
           <div>
 						<label>Email</label>
-						<input />
+						<input class="input" />
 					</div>
           <div>
 						<label>Votre message</label>
-						<input />
+						<textarea class="input"></textarea>
 					</div>
           <button class="contact_button" type="submit">Envoyer</button>
 				</form>
