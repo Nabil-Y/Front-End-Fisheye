@@ -58,11 +58,11 @@ class Image {
     
     createHTML() {
         return `
-        <article class="card">
+        <article class="card" data-date="${this.date}" data-title="${this.title}" data-likes=${this.likes}>
         <img src="./assets/images/${getPhotographerName(this.photographerId)}/${this.src}" alt="${this.title}" />
         <div class="gallery-info">
         <h3>${this.title}</h3>
-        <div class="likes" data-like="false">${this.likes} <i class="fa-regular fa-heart"></i></div>
+        <div class="likes" data-liked="false">${this.likes} <i class="fa-regular fa-heart"></i></div>
         </div>
         </article>
         `
@@ -81,11 +81,11 @@ class Video {
 
     createHTML() {
         return `
-        <article class="card">
+        <article class="card" data-date="${this.date}" data-title="${this.title}" data-likes=${this.likes}>
         <video title="${this.title}" src="./assets/images/${getPhotographerName(this.photographerId)}/${this.src}" controls ></video>
         <div class="gallery-info">
         <h3>${this.title}</h3>
-        <div class="likes" data-like="false">${this.likes} <i class="fa-regular fa-heart"></i></div>
+        <div class="likes" data-liked="false">${this.likes} <i class="fa-regular fa-heart"></i></div>
         </div>
         </article>
         `

@@ -10,7 +10,7 @@ let template = "";
 async function getPhotographers() {
     await fetch("./data/photographers.json")
         .then(response => response.json())
-        .then(data => usePhotoData(data))
+        .then(data => usePhotographersData(data))
         .catch(error => console.log(error));
         console.log(photographerData); 
 }
@@ -49,41 +49,45 @@ function createGalleryCard() {
 
 // Triage
 
-// document.getElementById("filter-select").addEventListener("input", filterGallery);
+document.getElementById("filter-select").addEventListener("input", filterGallery);
 
-// function filterGallery() {
-//     const newFilter = document.getElementById("filter-select").value;
-//     switch(newFilter) {
-//         case "Popularité":
-//             return photographerMedia.sort( (a,b) => {
-//                 const x=a[likes], y=b[likes];
-//                 return x-y;
-//             });
-//         break;
-//         case "Date":
-//             return photographerMedia.sort( (a,b) => {
-//                 const x=a[Date.parse(date)], y=b[Date.parse(date)];
-//                 return x-y;
-//             });
-//         break;
-//         case "Titre":
-//             return photographerMedia.sort( (a,b) => {
-//                 const x=a[titles], y=b[titles];
-//                 return x-y;
-//             });
-//         break;
-//         default:
-//             return console.log("Error, invalid filter value");
-//         break;
-//     }  
+function filterGallery() {
+    const newFilter = document.getElementById("filter-select").value;
+    switch(newFilter) {
+        case "Popularité":
+            sortGallery("likes");
+            return console.log("Populaire");
+        break;
+        case "Date":
+            sortGallery("date");
+            return console.log("Date");
+        break;
+        case "Titre":
+            sortGallery("title")
+            return console.log("Titre")
+        break;
+        default:
+            return console.log("Error, invalid filter value");
+        break;
+    }  
+}
+
+// function comparator(a,b,key) {
+//       a.dataset[key] < b.dataset[key] ? -1 
+//     : a.dataset[key] > b.dataset[key] ?  1 
+//     : 0;
 // }
 
-// function sortByKey(key) {
-//     return photographerMedia.sort( (a,b) => {
-//         const x=a[key], y=b[key];
-//         return x-y;
-//     })
-// }
+function comparator(a,b) {
+    return a-b;
+}
+
+function sortGallery(key) {
+    const galleryArray = Array.from(document.querySelectorAll(`[data-${key}]`));
+    const sortedGallery = galleryArray.sort(comparator);
+    sortedGallery.forEach(element => document.querySelector(".gallery-display").appendChild(element));
+
+}
 
 // Likes
 
@@ -91,12 +95,14 @@ function createLikeInteractions() {
     const likeButtons = Array.from(document.querySelectorAll(".likes"));
     const likeCounter = document.getElementById("like-counter");
     likeButtons.forEach(button => button.addEventListener("click", () => {
-    if (button.getAttribute("data-like") === "false") {
-        button.setAttribute("data-like", "true");
+    if (button.getAttribute("data-liked") === "false") {
+        button.closest("article").setAttribute('data-likes', parseInt(button.innerText) + 1);
+        button.setAttribute("data-liked", "true");
         button.innerHTML = `${parseInt(button.innerText) + 1} <i class="fa-solid fa-heart"></i>`;
         likeCounter.innerText = parseInt(likeCounter.innerText) + 1 ;
     } else {
-        button.setAttribute("data-like", "false");
+        button.closest("article").setAttribute('data-likes', parseInt(button.innerText) - 1);
+        button.setAttribute("data-liked", "false");
         button.innerHTML = `${parseInt(button.innerText) - 1} <i class="fa-regular fa-heart"></i>` ;
         likeCounter.innerText = parseInt(likeCounter.innerText) - 1 ;
     }   
@@ -106,7 +112,7 @@ function createLikeInteractions() {
 
 // Initialisation
 
-function usePhotoData(data) {
+function usePhotographersData(data) {
     photographerData.push( ...data.photographers.filter(photographer => photographer.id === photographerId ));
     completePhotographerCard();
     createModalEvents();
