@@ -93,11 +93,11 @@ function createLikeInteractions() {
     likeButtons.forEach(button => button.addEventListener("click", () => {
     if (button.getAttribute("data-like") === "false") {
         button.setAttribute("data-like", "true");
-        button.innerText = parseInt(button.innerText) + 1 ;
+        button.innerHTML = `${parseInt(button.innerText) + 1} <i class="fa-solid fa-heart"></i>`;
         likeCounter.innerText = parseInt(likeCounter.innerText) + 1 ;
     } else {
         button.setAttribute("data-like", "false");
-        button.innerText = parseInt(button.innerText) - 1 ;
+        button.innerHTML = `${parseInt(button.innerText) - 1} <i class="fa-regular fa-heart"></i>` ;
         likeCounter.innerText = parseInt(likeCounter.innerText) - 1 ;
     }   
 } ) )

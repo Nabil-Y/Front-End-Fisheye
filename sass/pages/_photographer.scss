@@ -47,6 +47,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    color: $primary-color;
 
     .card {
         @extend .center-all;
@@ -67,9 +68,14 @@
         justify-content: space-between;
         width: 350px;
         margin: 1rem 0;
+        font-weight: bold;
 
         .likes {
-            cursor: pointer;            
+            cursor: pointer; 
+            
+            i {
+                margin-left: 5px;
+            }
         }
     }
 }
@@ -87,4 +93,9 @@
     background: $secondary-color-bg;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
+
+    #like-counter {
+        width: 35px;
+    }
+
 }

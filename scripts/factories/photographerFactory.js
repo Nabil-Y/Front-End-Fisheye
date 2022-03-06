@@ -62,7 +62,7 @@ class Image {
         <img src="./assets/images/${getPhotographerName(this.photographerId)}/${this.src}" alt="${this.title}" />
         <div class="gallery-info">
         <h3>${this.title}</h3>
-        <div class="likes" data-like="false">${this.likes}</div>
+        <div class="likes" data-like="false">${this.likes} <i class="fa-regular fa-heart"></i></div>
         </div>
         </article>
         `
@@ -85,7 +85,7 @@ class Video {
         <video title="${this.title}" src="./assets/images/${getPhotographerName(this.photographerId)}/${this.src}" controls ></video>
         <div class="gallery-info">
         <h3>${this.title}</h3>
-        <div class="likes" data-like="false">${this.likes}</div>
+        <div class="likes" data-like="false">${this.likes} <i class="fa-regular fa-heart"></i></div>
         </div>
         </article>
         `
