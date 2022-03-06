@@ -25,7 +25,8 @@
         <div class="filter">
           <label for="filter-select">Trier par</label>
           <select name="filters" id="filter-select">
-              <option selected value="Popularité">Popularité</option>
+              <option selected disabled hidden value="">Choisissez</option>
+              <option value="Popularité">Popularité</option>
               <option value="Date">Date</option>
               <option value="Titre">Titre</option>
           </select>
@@ -44,7 +45,7 @@
 			<div class="modal">
 				<header>
           <h2>Contactez-moi</h2>
-          <button id="closeModal"><img src="./assets/icons/close.svg" alt="Close contact form button" /></button>
+          <button id="closeModal"><img class="white" src="./assets/icons/close.svg" alt="Close contact form button" /></button>
         </header>
 				<form id="contact-form">
 					<div>

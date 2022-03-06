@@ -47,7 +47,7 @@ function createGalleryCard() {
 }
 
 
-// Triage
+// Sorting
 
 document.getElementById("filter-select").addEventListener("input", filterGallery);
 
@@ -72,21 +72,37 @@ function filterGallery() {
     }  
 }
 
-// function comparator(a,b,key) {
-//       a.dataset[key] < b.dataset[key] ? -1 
-//     : a.dataset[key] > b.dataset[key] ?  1 
-//     : 0;
-// }
-
-function comparator(a,b) {
-    return a-b;
-}
-
 function sortGallery(key) {
     const galleryArray = Array.from(document.querySelectorAll(`[data-${key}]`));
-    const sortedGallery = galleryArray.sort(comparator);
+    const sortedGallery = sortByKey(galleryArray,key);
     sortedGallery.forEach(element => document.querySelector(".gallery-display").appendChild(element));
+}
 
+function sortByKey(array,key) {
+    switch(key) {
+        case "likes":
+            return array.sort( function(a,b) {
+                const x= a.dataset.likes, y=b.dataset.likes;
+                return y-x;
+            })
+        break;
+        case "title":
+            return array.sort( function(a,b) {
+                const x= a.dataset.title, y=b.dataset.title;
+                if (x>y) return 1;
+                if (y>x) return -1;
+                return 0; 
+            })
+        break;
+        case "date":
+            return array.sort( function(a,b) {
+                const x= new Date(a.dataset.date), y= new Date(b.dataset.date);
+                if (x>y) return 1;
+                if (y>x) return -1;
+                return 0;
+            })
+        break;
+    }
 }
 
 // Likes
