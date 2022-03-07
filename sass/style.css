@@ -7321,6 +7321,9 @@ h1 {
   aspect-ratio: 1/1;
   object-fit: cover;
 }
+.gallery-display .card .media {
+  cursor: pointer;
+}
 .gallery-display .gallery-info {
   display: flex;
   justify-content: space-between;
@@ -7333,10 +7336,6 @@ h1 {
 }
 .gallery-display .gallery-info .likes i {
   margin-left: 5px;
-}
-
-.media {
-  cursor: pointer;
 }
 
 .unplayed-video {

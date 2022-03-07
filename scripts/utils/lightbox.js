@@ -8,11 +8,8 @@ function addEventLightbox() {
         const lightboxChild = document.querySelector("#mediaLB article");
         document.getElementById("mediaLB").removeChild(lightboxChild);
         document.getElementById("lightboxmodal").style.display = "none";
-
-    })
-
-
-
+    });
+    
     document.getElementById("prevLB").addEventListener("click", prevMedia);
     document.getElementById("nextLB").addEventListener("click", nextMedia);
 }
@@ -30,7 +27,7 @@ function openLightbox(event) {
     })
     document.getElementById("lightboxmodal").style.display = "block";
     document.getElementById("mediaLB").appendChild(medias[currentIndex].cloneNode(true));
-    addVideoLightboxEvents();
+    checkForVideoInLB();
 }
 
 function prevMedia() {
@@ -38,6 +35,7 @@ function prevMedia() {
     document.getElementById("mediaLB").removeChild(lightboxChild);
     currentIndex === 0 ? currentIndex = medias.length - 1 : currentIndex -= 1;
     document.getElementById("mediaLB").appendChild(medias[currentIndex].cloneNode(true));
+    checkForVideoInLB();
 }
 
 function nextMedia() {
@@ -45,11 +43,15 @@ function nextMedia() {
     document.getElementById("mediaLB").removeChild(lightboxChild);
     currentIndex === medias.length - 1 ? currentIndex = 0 : currentIndex += 1;
     document.getElementById("mediaLB").appendChild(medias[currentIndex].cloneNode(true));
+    checkForVideoInLB();
 }
 
 function addVideoLightboxEvents() {
-    const videos = document.querySelectorAll("#mediaLB video");
-    videos.forEach(video => video.addEventListener("click", () => {
+    const video = document.querySelector("#mediaLB video");
+    video.play();
+    video.parentElement.classList.remove("unplayed-video");
+
+    video.addEventListener("click", () => {
         if (video.paused) {
             video.play();
             video.parentElement.classList.remove("unplayed-video");
@@ -57,7 +59,13 @@ function addVideoLightboxEvents() {
             video.pause();
             video.parentElement.classList.add("unplayed-video")
         }
-    }))
+    })
+}
+
+function checkForVideoInLB() {
+    if (document.querySelectorAll("#mediaLB img").length === 0) {
+        addVideoLightboxEvents()
+    };
 }
 
 

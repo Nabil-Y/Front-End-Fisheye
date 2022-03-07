@@ -61,6 +61,10 @@
             aspect-ratio: 1 / 1;
             object-fit: cover;
         }
+
+        .media {
+            cursor: pointer;
+        }
     }
 
     .gallery-info {
@@ -78,10 +82,6 @@
             }
         }
     }
-}
-
-.media {
-    cursor: pointer;
 }
 
 .unplayed-video {
