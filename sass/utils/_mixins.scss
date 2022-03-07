@@ -11,3 +11,11 @@
 .white {
     filter: brightness(0) invert(1);
 }
+
+.horizontal-reverse {
+    transform: rotate(180deg);
+}
+
+.block {
+    display: block;
+}

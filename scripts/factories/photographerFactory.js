@@ -59,7 +59,7 @@ class Image {
     createHTML() {
         return `
         <article class="card" data-date="${this.date}" data-title="${this.title}" data-likes=${this.likes}>
-        <img src="./assets/images/${getPhotographerName(this.photographerId)}/${this.src}" alt="${this.title}" />
+        <img class="media" src="./assets/images/${getPhotographerName(this.photographerId)}/${this.src}" alt="${this.title}" />
         <div class="gallery-info">
         <h3>${this.title}</h3>
         <div class="likes" data-liked="false">${this.likes} <i class="fa-regular fa-heart"></i></div>
@@ -81,8 +81,8 @@ class Video {
 
     createHTML() {
         return `
-        <article class="card" data-date="${this.date}" data-title="${this.title}" data-likes=${this.likes}>
-        <video title="${this.title}" src="./assets/images/${getPhotographerName(this.photographerId)}/${this.src}" controls ></video>
+        <article class="card unplayed-video" data-date="${this.date}" data-title="${this.title}" data-likes=${this.likes}>
+        <video class="media" title="${this.title}" src="./assets/images/${getPhotographerName(this.photographerId)}/${this.src}" loop ></video>
         <div class="gallery-info">
         <h3>${this.title}</h3>
         <div class="likes" data-liked="false">${this.likes} <i class="fa-regular fa-heart"></i></div>

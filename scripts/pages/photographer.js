@@ -12,7 +12,6 @@ async function getPhotographers() {
         .then(response => response.json())
         .then(data => usePhotographersData(data))
         .catch(error => console.log(error));
-        console.log(photographerData); 
 }
 
 async function getMedia() {
@@ -20,7 +19,6 @@ async function getMedia() {
         .then(response => response.json())
         .then(data => useMediaData(data))
         .catch(error => console.log(error));
-        console.log(photographerMedia);
 }
 
 
@@ -56,15 +54,12 @@ function filterGallery() {
     switch(newFilter) {
         case "Popularité":
             sortGallery("likes");
-            return console.log("Populaire");
         break;
         case "Date":
             sortGallery("date");
-            return console.log("Date");
         break;
         case "Titre":
             sortGallery("title")
-            return console.log("Titre")
         break;
         default:
             return console.log("Error, invalid filter value");
@@ -139,6 +134,7 @@ function useMediaData(data) {
     completeSticky();
     createGalleryCard();
     createLikeInteractions();
+    addEventLightbox();
 }
 
 function init() {  
