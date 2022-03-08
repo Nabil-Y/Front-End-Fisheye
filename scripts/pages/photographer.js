@@ -103,8 +103,9 @@ function sortByKey(array,key) {
 // Likes
 
 function createLikeInteractions() {
-    const likeButtons = Array.from(document.querySelectorAll(".likes"));
+    const likeButtons = document.querySelectorAll(".likes");
     const likeCounter = document.getElementById("like-counter");
+    
     likeButtons.forEach(button => button.addEventListener("click", () => {
     if (button.getAttribute("data-liked") === "false") {
         button.closest("article").setAttribute('data-likes', parseInt(button.innerText) + 1);
