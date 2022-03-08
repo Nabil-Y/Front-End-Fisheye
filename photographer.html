@@ -13,7 +13,7 @@
   <body>
     <header>
       <nav aria-label="Navigation Page Accueil">
-        <a href="./index.html">
+        <a tabindex="0" href="./index.html">
           <img src="./assets/images/logo.png" class="logo" alt="Fisheye Home Page"/>
         </a>
       </nav>
@@ -23,8 +23,8 @@
       </div>
       <section class="gallery">
         <div class="filter">
-          <label for="filter-select">Trier par</label>
-          <select name="filters" id="filter-select">
+          <label for="filter-select" role="Input label" id="filter-label">Trier par</label>
+          <select role="Select menu" aria-labelledby="filter-label" name="filters" id="filter-select">
               <option selected disabled hidden value="">Choisissez</option>
               <option value="Popularité">Popularité</option>
               <option value="Date">Date</option>
@@ -33,42 +33,42 @@
         </div>
         <div class="gallery-display"></div>
       </section>
+      <section class="sticky" tabindex="0" role="text">
+        <div class="center-all">
+          <div id="like-counter"></div>
+          <i class="fa-solid fa-heart"></i>
+        </div>
+        <div id="price"></div>
+      </section>
     </main>
-    <section class="sticky">
-      <div class="center-all">
-        <div id="like-counter"></div>
-        <i class="fa-solid fa-heart"></i>
-      </div>
-      <div id="price"></div>
-    </section>
-    <div id="contact_modal">
+    <div id="contact_modal" role="dialog" aria-label="">
 			<div class="modal">
 				<header>
-          <h2>Contactez-moi</h2>
+          <h2 >Contactez-moi</h2>
           <button id="closeModal"><img class="white" src="./assets/icons/close.svg" alt="Close contact form button" /></button>
         </header>
 				<form id="contact-form">
 					<div>
-						<label>Prénom</label>
-						<input class="input" />
+						<label for="firstName">Prénom</label>
+						<input class="input" id="firstName" name="firstName"/>
 					</div>
           <div>
-						<label>Nom</label>
-						<input class="input" />
+						<label for="lastName">Nom</label>
+						<input class="input" id="lastName" name="lastName"/>
 					</div>
           <div>
-						<label>Email</label>
-						<input class="input" />
+						<label for="email">Email</label>
+						<input class="input" id="email" name="email"/>
 					</div>
           <div>
-						<label>Votre message</label>
-						<textarea class="input"></textarea>
+						<label for="message">Votre message</label>
+						<textarea class="input" id="message" name="message"></textarea>
 					</div>
           <button class="contact_button" type="submit">Envoyer</button>
 				</form>
 			</div>
 		</div>
-    <div id="lightboxmodal">
+    <div id="lightboxmodal" role="dialog" aria-label="media closeup view">
       <div id="lightbox">
         <button id="closeLB"><img src="./assets/icons/close.svg" alt="Close lightbox button" /></button>
         <a id="prevLB"><img class="horizontal-reverse" src="./assets/icons/arrow.svg" alt="Previous media button" /></a>
