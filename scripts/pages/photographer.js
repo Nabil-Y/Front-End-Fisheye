@@ -140,6 +140,8 @@ function addKeyboardEvents() {
             case "ArrowRight":
                 nextMedia();
             break;
+            case "Enter":
+                document.activeElement.click();
             default:
             return '';
             break;

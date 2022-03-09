@@ -40,11 +40,11 @@
         <div id="price"></div>
       </section>
     </main>
-    <div id="contact_modal" role="dialog" aria-hidden="true">
+    <div id="contact_modal" role="dialog" aria-hidden="true" tabindex="0">
 			<div class="modal">
 				<header>
-          <h2 role="Heading (h2)" id="contact-title"></h2>
-          <button role="button" aria-label="Close Contact form" id="closeModal"><img class="white" src="./assets/icons/close.svg" alt="Close contact form button" /></button>
+          <h2 role="Heading (h2)" id="contact-title" tabindex="0"></h2>
+          <button tabindex="0" role="button" aria-label="Close Contact form" id="closeModal"><img class="white" src="./assets/icons/close.svg" alt="Close contact form button" /></button>
         </header>
 				<form id="contact-form">
 					<div>
@@ -67,12 +67,12 @@
 				</form>
 			</div>
 		</div>
-    <div id="lightboxmodal" role="dialog" aria-label="media closeup view" aria-hidden="true">
+    <div id="lightboxmodal" role="dialog" aria-label="media closeup view" aria-hidden="true" tabindex="0">
       <div id="lightbox">
         <button role="Button" aria-label="Close dialog" id="closeLB"><img src="./assets/icons/close.svg" alt="Close lightbox button" /></button>
-        <a role="Link" aria-label="Previous Media" id="prevLB"><img class="horizontal-reverse" src="./assets/icons/arrow.svg" alt="Previous media button" /></a>
-        <a role="Link" aria-label="Next media" id="nextLB"><img src="./assets/icons/arrow.svg" alt="Next media button" /></a>
+        <a tabindex="0" role="Link" aria-label="Previous Media" id="prevLB"><img class="horizontal-reverse" src="./assets/icons/arrow.svg" alt="Previous media button" /></a>
         <div id="mediaLB"></div>
+        <a tabindex="0" role="Link" aria-label="Next media" id="nextLB"><img src="./assets/icons/arrow.svg" alt="Next media button" /></a>
       </div>
     </div>
     <script src="./scripts/factories/photographerFactory.js"></script>

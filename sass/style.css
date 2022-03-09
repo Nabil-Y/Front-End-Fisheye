@@ -7165,6 +7165,10 @@ readers do not read off random characters that represent icons */
   box-sizing: border-box;
 }
 
+*:focus {
+  outline: 2px solid black;
+}
+
 /* Remove default margin */
 body,
 h1,
