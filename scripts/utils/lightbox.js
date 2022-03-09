@@ -4,12 +4,7 @@ function addEventLightbox() {
         openLightbox(event);
     }) );
 
-    document.getElementById("closeLB").addEventListener("click", () => {
-        const lightboxChild = document.querySelector("#mediaLB article");
-        document.getElementById("mediaLB").removeChild(lightboxChild);
-        document.getElementById("lightboxmodal").style.display = "none";
-    });
-    
+    document.getElementById("closeLB").addEventListener("click", closeLB);    
     document.getElementById("prevLB").addEventListener("click", prevMedia);
     document.getElementById("nextLB").addEventListener("click", nextMedia);
 }
@@ -18,7 +13,7 @@ let medias = [];
 let currentIndex = 0;
 
 function openLightbox(event) {
-    medias = Array.from(document.querySelectorAll("article"));
+    medias = document.querySelectorAll("article");
     const url = event.target.attributes.src.value;
     medias.forEach( (media,index) => {
         if (media.firstElementChild.attributes.src.value === url) {
@@ -27,7 +22,11 @@ function openLightbox(event) {
     })
     document.getElementById("lightboxmodal").style.display = "block";
     document.getElementById("mediaLB").appendChild(medias[currentIndex].cloneNode(true));
-    checkForVideoInLB();
+    prepareNewMediaLB();
+
+    document.getElementById("lightboxmodal").setAttribute("aria-hidden", "false");
+    document.querySelector("header").setAttribute("aria-hidden", "true");
+    document.querySelector("main").setAttribute("aria-hidden", "true");
 }
 
 function prevMedia() {
@@ -35,7 +34,7 @@ function prevMedia() {
     document.getElementById("mediaLB").removeChild(lightboxChild);
     currentIndex === 0 ? currentIndex = medias.length - 1 : currentIndex -= 1;
     document.getElementById("mediaLB").appendChild(medias[currentIndex].cloneNode(true));
-    checkForVideoInLB();
+    prepareNewMediaLB();
 }
 
 function nextMedia() {
@@ -43,21 +42,30 @@ function nextMedia() {
     document.getElementById("mediaLB").removeChild(lightboxChild);
     currentIndex === medias.length - 1 ? currentIndex = 0 : currentIndex += 1;
     document.getElementById("mediaLB").appendChild(medias[currentIndex].cloneNode(true));
-    checkForVideoInLB();
+    prepareNewMediaLB();
+}
+
+function closeLB() {
+        const lightboxChild = document.querySelector("#mediaLB article");
+        document.getElementById("mediaLB").removeChild(lightboxChild);
+        document.getElementById("lightboxmodal").style.display = "none";
+        document.getElementById("lightboxmodal").setAttribute("aria-hidden", "true");
+        document.querySelector("header").setAttribute("aria-hidden", "false");
+        document.querySelector("main").setAttribute("aria-hidden", "false");
 }
 
 function addVideoLightboxEvents() {
     const video = document.querySelector("#mediaLB video");
     video.play();
-    video.parentElement.classList.remove("unplayed-video");
+    video.parentElement.classList.remove("paused-video");
 
     video.addEventListener("click", () => {
         if (video.paused) {
             video.play();
-            video.parentElement.classList.remove("unplayed-video");
+            video.parentElement.classList.remove("paused-video");
         } else {
             video.pause();
-            video.parentElement.classList.add("unplayed-video")
+            video.parentElement.classList.add("paused-video")
         }
     })
 }
@@ -68,18 +76,15 @@ function checkForVideoInLB() {
     };
 }
 
+function changeMediaRole() {
+    const currentMedia = document.querySelector("#mediaLB article").firstElementChild
+    currentMedia.setAttribute("role", currentMedia.getAttribute("role").slice(0,-5) );
+}
 
-
-// const fileType = event.target.attributes.src.value.slice(-3);
-// if (fileType === "mp4") {
-//     videoControls();
-// }
-// console.log(event.target.attributes.src);
-// event.target.parentElement.classList.remove("unplayed-video");
-// event.target.controls = true;
-// event.target.play();
-
-
+function prepareNewMediaLB() {
+    checkForVideoInLB();
+    changeMediaRole();
+}
 
 
 

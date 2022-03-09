@@ -25,8 +25,7 @@
         <div class="filter">
           <label for="filter-select" role="Input label" id="filter-label">Trier par</label>
           <select role="Select menu" aria-labelledby="filter-label" name="filters" id="filter-select">
-              <option selected disabled hidden value="">Choisissez</option>
-              <option value="Popularité">Popularité</option>
+              <option selected value="Popularité">Popularité</option>
               <option value="Date">Date</option>
               <option value="Titre">Titre</option>
           </select>
@@ -41,38 +40,38 @@
         <div id="price"></div>
       </section>
     </main>
-    <div id="contact_modal" role="dialog" aria-label="">
+    <div id="contact_modal" role="dialog" aria-hidden="true">
 			<div class="modal">
 				<header>
-          <h2 >Contactez-moi</h2>
-          <button id="closeModal"><img class="white" src="./assets/icons/close.svg" alt="Close contact form button" /></button>
+          <h2 role="Heading (h2)" id="contact-title"></h2>
+          <button role="button" aria-label="Close Contact form" id="closeModal"><img class="white" src="./assets/icons/close.svg" alt="Close contact form button" /></button>
         </header>
 				<form id="contact-form">
 					<div>
-						<label for="firstName">Prénom</label>
-						<input class="input" id="firstName" name="firstName"/>
+						<label role="Label" for="firstName" id="firstNameLabel">Prénom</label>
+						<input class="input" id="firstName" name="firstName" aria-labelledby="firstNameLabel"/>
 					</div>
           <div>
-						<label for="lastName">Nom</label>
-						<input class="input" id="lastName" name="lastName"/>
+						<label role="Label" for="lastName" id="lastNameLabel">Nom</label>
+						<input class="input" id="lastName" name="lastName" aria-labelledby="lastNameLabel"/>
 					</div>
           <div>
-						<label for="email">Email</label>
-						<input class="input" id="email" name="email"/>
+						<label role="Label" for="email" id="emailLabel">Email</label>
+						<input class="input" id="email" name="email" aria-labelledby="emailLabel"/>
 					</div>
           <div>
-						<label for="message">Votre message</label>
-						<textarea class="input" id="message" name="message"></textarea>
+						<label role="Label" for="message" id="messageLabel">Votre message</label>
+						<textarea class="input" id="message" name="message" aria-labelledby="messageLabel"></textarea>
 					</div>
-          <button class="contact_button" type="submit">Envoyer</button>
+          <button role="button" aria-label="Send" class="contact_button" type="submit">Envoyer</button>
 				</form>
 			</div>
 		</div>
-    <div id="lightboxmodal" role="dialog" aria-label="media closeup view">
+    <div id="lightboxmodal" role="dialog" aria-label="media closeup view" aria-hidden="true">
       <div id="lightbox">
-        <button id="closeLB"><img src="./assets/icons/close.svg" alt="Close lightbox button" /></button>
-        <a id="prevLB"><img class="horizontal-reverse" src="./assets/icons/arrow.svg" alt="Previous media button" /></a>
-        <a id="nextLB"><img src="./assets/icons/arrow.svg" alt="Next media button" /></a>
+        <button role="Button" aria-label="Close dialog" id="closeLB"><img src="./assets/icons/close.svg" alt="Close lightbox button" /></button>
+        <a role="Link" aria-label="Previous Media" id="prevLB"><img class="horizontal-reverse" src="./assets/icons/arrow.svg" alt="Previous media button" /></a>
+        <a role="Link" aria-label="Next media" id="nextLB"><img src="./assets/icons/arrow.svg" alt="Next media button" /></a>
         <div id="mediaLB"></div>
       </div>
     </div>

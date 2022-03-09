@@ -26,7 +26,7 @@
 
     #closeLB {
         position: absolute;
-        top: 10%;
+        top: 140px;
         right: 25vw;
     }
 
@@ -47,11 +47,11 @@
         
         article {
             margin: auto;
-            width: 40vw;
+            width: min(600px,40vw);
         }
 
         img,video {
-            width: 40vw;
+            width: min(600px,40vw);
             aspect-ratio: 1 / 1;
             object-fit: cover;
             border-radius: 2px;

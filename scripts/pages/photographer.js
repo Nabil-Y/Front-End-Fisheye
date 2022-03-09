@@ -121,21 +121,49 @@ function createLikeInteractions() {
 } ) )
 }
 
+// Keyboard Navigation Events 
+
+function addKeyboardEvents() {
+    document.addEventListener("keydown", event => {
+        switch(event.key) {
+            case "Esc":
+            case "Escape":
+                if ( document.getElementById("contact_modal").style.display === "block") {
+                    closeModal();
+                } else if (document.getElementById("lightboxmodal").style.display === "block") {
+                    closeLB();
+                }
+            break;
+            case "ArrowLeft":
+                prevMedia();
+            break;
+            case "ArrowRight":
+                nextMedia();
+            break;
+            default:
+            return '';
+            break;
+        }
+    })
+}
+
 
 // Initialisation
 
 function usePhotographersData(data) {
     photographerData.push( ...data.photographers.filter(photographer => photographer.id === photographerId ));
     completePhotographerCard();
-    createModalEvents();
+    completeModal();
 }
 
 function useMediaData(data) {
     photographerMedia.push( ...data.media.filter( content => content.photographerId === photographerId ))
     completeSticky();
     createGalleryCard();
+    filterGallery();
     createLikeInteractions();
     addEventLightbox();
+    addKeyboardEvents();
 }
 
 function init() {  

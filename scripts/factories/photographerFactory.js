@@ -86,7 +86,7 @@ class Video {
 
     createHTML() {
         return `
-        <article class="card unplayed-video" data-date="${this.date}" data-title="${this.title}" data-likes=${this.likes}>
+        <article class="card paused-video" data-date="${this.date}" data-title="${this.title}" data-likes=${this.likes}>
         <video tabindex="0" aria-label="${this.title}" role="Video link" class="media" title="${this.title}" src="./assets/images/${getPhotographerName(this.photographerId)}/${this.src}" loop ></video>
         <div class="gallery-info">
         <h2 role="Text" tabindex="0">${this.title}</h2>
@@ -97,7 +97,7 @@ class Video {
     }
 }
 
-function getPhotographerName(id) {
+const getPhotographerName = (id) => {
     switch(id) {
         case 243:
         return "Mimi Keel";

@@ -7269,7 +7269,8 @@ h1 {
   align-items: center;
   background-color: #FAFAFA;
   height: 300px;
-  margin: 0 150px;
+  margin: 0 100px;
+  padding: 0 50px;
 }
 .photograph-header img {
   height: 200px;
@@ -7351,10 +7352,28 @@ h1 {
   margin-left: 5px;
 }
 
-.unplayed-video {
+.filter label {
+  font-weight: bold;
+}
+.filter select {
+  background: #901C1C;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem;
+  margin-left: 1rem;
+  cursor: pointer;
+}
+.filter select option {
+  cursor: pointer;
+  border-bottom: solid 1px #fff;
+  padding: 0.5rem;
+}
+
+.paused-video {
   position: relative;
 }
-.unplayed-video:after {
+.paused-video:after {
   content: "";
   position: absolute;
   top: 50%;
@@ -7440,7 +7459,7 @@ h1 {
 }
 #lightbox #closeLB {
   position: absolute;
-  top: 10%;
+  top: 140px;
   right: 25vw;
 }
 #lightbox #prevLB {
@@ -7458,10 +7477,10 @@ h1 {
 }
 #lightbox #mediaLB article {
   margin: auto;
-  width: 40vw;
+  width: min(600px, 40vw);
 }
 #lightbox #mediaLB img, #lightbox #mediaLB video {
-  width: 40vw;
+  width: min(600px, 40vw);
   aspect-ratio: 1/1;
   object-fit: cover;
   border-radius: 2px;
@@ -7500,6 +7519,7 @@ h1 {
 .modal header {
   justify-content: space-between;
   width: 100%;
+  height: auto;
 }
 .modal header button {
   background: transparent;
@@ -7507,9 +7527,8 @@ h1 {
   cursor: pointer;
 }
 .modal header h2 {
-  font-size: 64px;
+  font-size: 56px;
   font-weight: normal;
-  text-align: center;
 }
 
 form {
@@ -7531,14 +7550,14 @@ form div {
 }
 form input {
   width: 100%;
-  height: 68px;
+  height: 50px;
   border: none;
   border-radius: 5px;
 }
 form textarea {
   resize: none;
   width: 100%;
-  height: 170px;
+  height: 150px;
   border-radius: 5px;
   border: none;
 }

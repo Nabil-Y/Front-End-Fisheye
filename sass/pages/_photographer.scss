@@ -4,7 +4,8 @@
     align-items: center;
     background-color: $photographer-header;
     height: 300px;
-    margin: 0 150px;
+    margin: 0 100px;
+    padding: 0 50px;
 
     img {
         height: 200px;
@@ -100,7 +101,32 @@
     }
 }
 
-.unplayed-video {
+.filter {
+    
+    label {
+        font-weight: bold;
+    }
+    
+    select  {
+        background: $primary-color;
+        color: $white;
+        border: none;
+        border-radius: 5px;
+        padding: 0.5rem;
+        margin-left: 1rem;
+        cursor: pointer;
+
+        option {
+            cursor: pointer;
+            border-bottom: solid 1px $white;
+            padding: 0.5rem;
+        }
+    }
+}
+
+
+
+.paused-video {
     position: relative;
 
     &:after {
