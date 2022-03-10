@@ -139,7 +139,6 @@ class Video {
 }
 
 /**
- * 
  * @param {number} id 
  * @returns string with photographer full name corresponding to id  
  */
@@ -168,3 +167,4 @@ const getPhotographerName = (id) => {
         break;
     }
 }
+

@@ -1,3 +1,6 @@
+/**
+ * Create events for contact from modal
+ */
 const addModalEvents = () => {
     document.getElementById("openModal").addEventListener("click", openModal);
     document.getElementById("closeModal").addEventListener("click", closeModal);
@@ -9,20 +12,22 @@ const addModalEvents = () => {
     })
 }
 
+/**
+ * Function called to open contact form modal
+ */
 const openModal = () => {
     const modal = document.getElementById("contact_modal");
 	modal.style.display = "block";
-
     modal.setAttribute("aria-hidden", "false");
-    document.querySelector("header").setAttribute("aria-hidden", "true");
-    document.querySelector("main").setAttribute("aria-hidden", "true");
+    hideBackgroundContent();
 }
 
+/**
+ * Function called to close contact form modal
+ */
 const closeModal = () => {
     const modal = document.getElementById("contact_modal");
     modal.style.display = "none";
-
     modal.setAttribute("aria-hidden", "true");
-    document.querySelector("header").setAttribute("aria-hidden", "false");
-    document.querySelector("main").setAttribute("aria-hidden", "false");
+    showBackgroundContent();
 }

@@ -100,6 +100,30 @@ const addLikeInteractions = () => {
 }
 
 ///////////////////////////////////////////
+// Modal functions
+///////////////////////////////////////////
+
+/**
+ * Show background content for everyone when modal is closed
+ */
+ const showBackgroundContent = () => {
+    document.querySelector("header").setAttribute("aria-hidden", "false");
+    document.querySelector("header").style.display = "block";
+    document.querySelector("main").setAttribute("aria-hidden", "false");
+    document.querySelector("main").style.display = "block";
+}
+
+/**
+ * Hide background content for everyone when modal is opened
+ */
+const hideBackgroundContent = () => {
+    document.querySelector("header").setAttribute("aria-hidden", "true");
+    document.querySelector("header").style.display = "none";
+    document.querySelector("main").setAttribute("aria-hidden", "true");
+    document.querySelector("main").style.display = "none";
+}
+
+///////////////////////////////////////////
 // Events
 ///////////////////////////////////////////
 
@@ -120,10 +144,14 @@ const addKeyboardEvents = () => {
                 }
             break;
             case "ArrowLeft":
-                prevMedia();
+                if (document.getElementById("lightboxmodal").style.display === "block") {
+                    changeMedia("down");
+                }
             break;
             case "ArrowRight":
-                nextMedia();
+                if (document.getElementById("lightboxmodal").style.display === "block") {
+                    changeMedia("up");
+                }
             break;
             case "Enter":
                 // Check if active element is not a button to prevent double clicks
