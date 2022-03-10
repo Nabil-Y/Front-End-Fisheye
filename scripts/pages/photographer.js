@@ -1,6 +1,13 @@
+///////////////////////////////////////////
+// Store photographer ID from the page path
+///////////////////////////////////////////
+
 const path = window.location.href;
 const photographerId = parseInt(path.substring(path.lastIndexOf('=')+1));
 
+/**
+ * Fetch data from JSON
+ */
 const getData = async () => {
     await fetch("./data/photographers.json")
         .then(response => response.json())
@@ -8,8 +15,14 @@ const getData = async () => {
         .catch(error => console.log(error));
 }
 
+///////////////////////////////////////////
 // Sorting
+///////////////////////////////////////////  
 
+/**
+ * Get array of current gallery elements and sort it depending on the select menu value
+ * @returns sorted array of current gallery elements
+ */
 const filterGallery = () => {
     let sortedGallery;
     const newFilter = document.getElementById("filter-select").value;
@@ -48,36 +61,53 @@ const filterGallery = () => {
     return sortedGallery.forEach(element => document.querySelector(".gallery-display").appendChild(element));
 }
 
+/**
+ * Add event on select menu change and filters gallery when page first loads
+ */
 const addGalleryFilterEvent = () => {
     document.getElementById("filter-select").addEventListener("input", filterGallery);
     filterGallery();
 }
 
+///////////////////////////////////////////
 // Likes
+///////////////////////////////////////////
 
+/**
+ * Add functionality to like section: incrementing, decrementing counters and changing heart icon
+ */
 const addLikeInteractions = () => {
     const likeButtons = document.querySelectorAll(".likes");
     const likeCounter = document.getElementById("like-counter");
     
     likeButtons.forEach(button => button.addEventListener("click", () => {
+        let mediaLikes = parseInt(button.innerText);
+        let totalLikes = parseInt(likeCounter.innerText);
+
         if (button.getAttribute("data-liked") === "false") {
-            button.closest("article").setAttribute('data-likes', parseInt(button.innerText) + 1);
+            button.closest("article").setAttribute('data-likes', mediaLikes + 1);
             button.setAttribute("data-liked", "true");
-            button.innerHTML = `${parseInt(button.innerText) + 1} <i class="fa-solid fa-heart"></i>`;
-            likeCounter.innerText = parseInt(likeCounter.innerText) + 1 ;
+            button.innerHTML = `${mediaLikes + 1} <i class="fa-solid fa-heart"></i>`;
+            likeCounter.innerText = totalLikes + 1 ;
         } else {
-            button.closest("article").setAttribute('data-likes', parseInt(button.innerText) - 1);
+            button.closest("article").setAttribute('data-likes', mediaLikes - 1);
             button.setAttribute("data-liked", "false");
-            button.innerHTML = `${parseInt(button.innerText) - 1} <i class="fa-regular fa-heart"></i>` ;
-            likeCounter.innerText = parseInt(likeCounter.innerText) - 1 ;
-        }   
+            button.innerHTML = `${mediaLikes - 1} <i class="fa-regular fa-heart"></i>` ;
+            likeCounter.innerText = totalLikes - 1 ;
+        }
+
     }))
 }
 
+///////////////////////////////////////////
 // Events
+///////////////////////////////////////////
 
 // Keyboard Navigation Events 
 
+/**
+ * Add events for keyboard navigation to be more accessible
+ */
 const addKeyboardEvents = () => {
     document.addEventListener("keydown", event => {
         switch(event.key) {
@@ -96,6 +126,7 @@ const addKeyboardEvents = () => {
                 nextMedia();
             break;
             case "Enter":
+                // Check if active element is not a button to prevent double clicks
                 if (document.activeElement.getAttribute("role") !== "button") {
                     document.activeElement.click();
                 }
@@ -106,6 +137,9 @@ const addKeyboardEvents = () => {
     })
 }
 
+/**
+ * Add all events at first page load
+ */
 const addEvents = () => {
     addGalleryFilterEvent();
     addLikeInteractions();
@@ -114,9 +148,14 @@ const addEvents = () => {
     addModalEvents();
 }
 
+///////////////////////////////////////////
+// Initialization
+///////////////////////////////////////////
 
-// Initialisation
-
+/**
+ * Create new and complete existing HTML with photographer data from JSON
+ * @param {Object} data 
+ */
 const usePhotographersData = (data) => {
     // Create top photographer section HTML
     const section = document.querySelector(".photograph-header");
@@ -135,6 +174,10 @@ const usePhotographersData = (data) => {
     document.getElementById("contact_modal").setAttribute("aria-labelledby", "contact-title");
 }
 
+/**
+ * Create new and complete existing HTML with media data from JSON
+ * @param {Object} data 
+ */
 const useMediaData = (data) => {
     // Create Gallery HTML
     let template = "";
@@ -154,12 +197,19 @@ const useMediaData = (data) => {
     document.getElementById("like-counter").innerText = likeCount;
 }
 
+/**
+ * Use data fetched from JSON 
+ * @param {Object} data 
+ */
 const useData = (data) => {
     usePhotographersData(data);
     useMediaData(data);
     addEvents();
 }
 
+/**
+ * Initialize JS scripts, launched when page is loaded
+ */
 const init = () => {  
     getData();
 }
