@@ -1,4 +1,4 @@
-function addEventLightbox() {
+function addLightboxEvents() {
     
     document.querySelectorAll(".media").forEach( media => media.addEventListener("click", (event) => {
         openLightbox(event);
