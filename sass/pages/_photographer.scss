@@ -2,10 +2,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: $photographer-header;
     height: 300px;
     margin: 0 100px;
     padding: 0 50px;
+    background-color: $photographer-header;
 
     img {
         height: 200px;
@@ -115,12 +115,6 @@
         padding: 0.5rem;
         margin-left: 1rem;
         cursor: pointer;
-
-        option {
-            cursor: pointer;
-            border-bottom: solid 1px $white;
-            padding: 0.5rem;
-        }
     }
 }
 
@@ -144,16 +138,16 @@
 
 
 .sticky {
+    display: flex;
+    justify-content: space-between;
     position: fixed;
     bottom: 0;
     right: 2rem;
     width: 200px;
     padding: 0.5rem 1rem;
-    display: flex;
-    justify-content: space-between;
-    background: $secondary-color-bg;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
+    background: $secondary-color-bg;
 
     #like-counter {
         width: 35px;

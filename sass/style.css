@@ -14,10 +14,6 @@
   transform: rotate(180deg);
 }
 
-.block {
-  display: block;
-}
-
 /*!
  * Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
@@ -7267,10 +7263,10 @@ h1 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #FAFAFA;
   height: 300px;
   margin: 0 100px;
   padding: 0 50px;
+  background-color: #FAFAFA;
 }
 .photograph-header img {
   height: 200px;
@@ -7364,11 +7360,6 @@ h1 {
   margin-left: 1rem;
   cursor: pointer;
 }
-.filter select option {
-  cursor: pointer;
-  border-bottom: solid 1px #fff;
-  padding: 0.5rem;
-}
 
 .paused-video {
   position: relative;
@@ -7386,16 +7377,16 @@ h1 {
 }
 
 .sticky {
+  display: flex;
+  justify-content: space-between;
   position: fixed;
   bottom: 0;
   right: 2rem;
   width: 200px;
   padding: 0.5rem 1rem;
-  display: flex;
-  justify-content: space-between;
-  background: #DB8876;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
+  background: #DB8876;
 }
 .sticky #like-counter {
   width: 35px;
@@ -7471,9 +7462,6 @@ h1 {
   position: absolute;
   top: 45%;
   right: 25vw;
-}
-#lightbox #mediaLB {
-  margin: auto;
 }
 #lightbox #mediaLB article {
   margin: auto;
