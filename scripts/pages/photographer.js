@@ -4,23 +4,15 @@ const photographerId = parseInt(path.substring(path.lastIndexOf('=')+1));
 const photographerData = [];
 const photographerMedia = [];
 
-let likeCounter = 0;
-let template = "";
-
-async function getPhotographers() {
+const getData = async () => {
     await fetch("./data/photographers.json")
         .then(response => response.json())
-        .then(data => usePhotographersData(data))
+        .then(data => {
+            usePhotographersData(data);
+            useMediaData(data);
+        })
         .catch(error => console.log(error));
 }
-
-async function getMedia() {
-    await fetch("./data/photographers.json")
-        .then(response => response.json())
-        .then(data => useMediaData(data))
-        .catch(error => console.log(error));
-}
-
 
 function completePhotographerCard() {
     const section = document.querySelector(".photograph-header");
@@ -30,12 +22,14 @@ function completePhotographerCard() {
 }
 
 function completeSticky() {
-    photographerMedia.forEach(photo => likeCounter += photo.likes);
-    document.getElementById("like-counter").innerText = likeCounter;
+    let likeCount = 0;
+    photographerMedia.forEach(photo => likeCount += photo.likes);
+    document.getElementById("like-counter").innerText = likeCount;
 }
 
 
 function createGalleryCard() {
+    let template = "";
     const section = document.querySelector(".gallery-display");
     photographerMedia.forEach( media => {
         const newMedia = new MediaFactory(media);
@@ -169,8 +163,7 @@ function useMediaData(data) {
 }
 
 function init() {  
-    getPhotographers();
-    getMedia();
+    getData();
 }
 
 init();

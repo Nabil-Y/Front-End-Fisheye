@@ -1,5 +1,11 @@
-
+/**
+ * PhotographerFactory to create HTML card with JSON data
+ */
 class PhotographerFactory {
+    /**
+     * Object collected from JSON
+     * @param {Object} data 
+     */
     constructor(data) {
         this.name = data.name;
         this.id = data.id;
@@ -10,6 +16,10 @@ class PhotographerFactory {
         this.portrait = data.portrait;
     }
 
+    /**
+     * Create photographer card innerHTML for home Page
+     * @returns string with innerHTML 
+     */
     createHomeHTML() {
         return `<article>
         <a role="Link (h2) + image" href="./photographer.html?id=${this.id}" aria-label="${this.name}">
@@ -24,6 +34,10 @@ class PhotographerFactory {
         </article>`
     }
 
+    /**
+     * Photographer card innerHTML for profile Page
+     * @returns string with innerHTML
+     */
     createProfileHTML() {
         return `
         <div>
@@ -41,8 +55,14 @@ class PhotographerFactory {
     }
 }
 
-
+/**
+ * MediaFactory to create HTML img or video with JSON data
+ */
 class MediaFactory {
+    /**
+     * Object collected from JSON
+     * @param {Object} data 
+     */
     constructor(data) {
         if (data.image) {
             return new Image(data);
@@ -52,7 +72,14 @@ class MediaFactory {
     }
 }   
 
+/**
+ * Image class to create HTML when receiving img data in JSON
+ */
 class Image {
+    /**
+     * Object collected from JSON
+     * @param {Object} data 
+     */
     constructor(data) {
         this.title= data.title;
         this.src = data.image;
@@ -61,6 +88,10 @@ class Image {
         this.photographerId = data.photographerId;
     }
     
+    /**
+     * Image innerHTML for profile page
+     * @returns string with innerHTML
+     */
     createHTML() {
         return `
         <article class="card" data-date="${this.date}" data-title="${this.title}" data-likes=${this.likes}>
@@ -74,8 +105,14 @@ class Image {
     }
 }
 
-
+/**
+ * Video class to create HTML when receiving video data in JSON
+ */
 class Video {
+    /**
+     * Object collected from JSON
+     * @param {Object} data 
+     */
     constructor(data) {
         this.title= data.title;
         this.src = data.video;
@@ -84,6 +121,10 @@ class Video {
         this.photographerId = data.photographerId;
     }
 
+    /**
+     * Video innerHTML for profile page
+     * @returns string with innerHTML
+     */
     createHTML() {
         return `
         <article class="card paused-video" data-date="${this.date}" data-title="${this.title}" data-likes=${this.likes}>
@@ -97,6 +138,11 @@ class Video {
     }
 }
 
+/**
+ * 
+ * @param {number} id 
+ * @returns string with photographer full name corresponding to id  
+ */
 const getPhotographerName = (id) => {
     switch(id) {
         case 243:

@@ -1,4 +1,4 @@
-function createModalEvents() {
+const createModalEvents = () => {
     document.getElementById("openModal").addEventListener("click", openModal);
     document.getElementById("closeModal").addEventListener("click", closeModal);
 
@@ -8,12 +8,12 @@ function createModalEvents() {
     })
 }
 
-function completeModalTitleAndRoles() {
+const addModalTitleAndRoles = () => {
     document.getElementById("contact-title").innerText = `Contactez-moi\r ${photographerData[0].name}`;
-    document.getElementById("contact_modal").setAttribute("aria-labelledby", "contact-title")
+    document.getElementById("contact_modal").setAttribute("aria-labelledby", "contact-title");
 }
 
-function openModal() {
+const openModal = () => {
     const modal = document.getElementById("contact_modal");
 	modal.style.display = "block";
 
@@ -22,7 +22,7 @@ function openModal() {
     document.querySelector("main").setAttribute("aria-hidden", "true");
 }
 
-function closeModal() {
+const closeModal = () => {
     const modal = document.getElementById("contact_modal");
     modal.style.display = "none";
 
@@ -31,7 +31,7 @@ function closeModal() {
     document.querySelector("main").setAttribute("aria-hidden", "false");
 }
 
-function completeModal() {
+const completeModal = () => {
     createModalEvents();
-    completeModalTitleAndRoles();
+    addModalTitleAndRoles();
 }
