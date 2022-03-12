@@ -27,10 +27,8 @@ const addLightboxEvents = () => {
 const openLightbox = (event) => {
     // Store current gallery elements in node list
     medias = document.querySelectorAll("article");
-    console.log(medias)
     
     //Check current index of media clicked
-    console.log(event.currentTarget);
     const url = event.currentTarget.firstElementChild.attributes.src.value;
     medias.forEach( (media,index) => {
         if (media.firstElementChild.firstElementChild.attributes.src.value === url) {
