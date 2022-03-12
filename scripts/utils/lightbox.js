@@ -115,7 +115,9 @@ const changeMediaForLB = () => {
     likes.setAttribute("aria-hidden", "true");
 }
 
-
+/**
+ * Perform necessary checks when new media is loaded in lightbox
+ */
 const newMediaCheckInLB = () => {
     checkWhatMediaInLB();
     changeMediaForLB();
