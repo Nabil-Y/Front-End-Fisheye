@@ -22,11 +22,11 @@ class PhotographerFactory {
      */
     createHomeHTML() {
         return `<article>
-        <a role="Link (h2) + image" href="./photographer.html?id=${this.id}" aria-label="${this.name}">
+        <a href="./photographer.html?id=${this.id}" aria-label="${this.name}">
             <img src="./assets/photographers/${this.portrait}" alt="${this.name} profile picture">
             <h2>${this.name}</h2>
         </a>
-        <div role="Text paragraph" tabindex="0">
+        <div tabindex="0">
             <p class="location">${this.city}, ${this.country}</p>
             <p>${this.tagline}</p>
             <p class="price">${this.price}€/jour</p>
@@ -41,15 +41,15 @@ class PhotographerFactory {
     createProfileHTML() {
         return `
         <div>
-            <h1 tabindex="0" role="Header (h1)">${this.name}</h1>
-            <div tabindex="0" role="text">
+            <h1 tabindex="0">${this.name}</h1>
+            <div tabindex="0">
                 <h2 >${this.city}, ${this.country}</h2>
                 <p>${this.tagline}</p>
             </div>
         </div>
-        <button role="button" class="contact_button" id="openModal" aria-label="Contact me">Contactez-moi</button>
+        <button class="contact_button" id="openModal" aria-label="Contact me">Contactez-moi</button>
         <div id="photographerImage">
-            <img tabindex="0" role="Image" src="./assets/photographers/${this.portrait}" alt="${this.name} profile picture">
+            <img tabindex="0" src="./assets/photographers/${this.portrait}" alt="${this.name} profile picture">
         </div>
         `
     }
@@ -95,10 +95,10 @@ class Image {
     createHTML() {
         return `
         <article class="card" data-date="${this.date}" data-title="${this.title}" data-likes=${this.likes}>
-        <img tabindex="0" aria-label="${this.title}" role="Image link" class="media" src="./assets/images/${getPhotographerName(this.photographerId)}/${this.src}" alt="${this.title}" />
+        <a tabindex="0" class="media-link"><img class="media" aria-label="${this.title}" src="./assets/images/${getPhotographerName(this.photographerId)}/${this.src}" alt="${this.title}" /></a>
         <div class="gallery-info">
-        <h2 role="Text" tabindex="0">${this.title}</h2>
-        <div tabindex="0" role="image" aria-label="likes" class="likes" data-liked="false">${this.likes} <i class="fa-regular fa-heart"></i></div>
+        <h2 tabindex="0">${this.title}</h2>
+        <div tabindex="0" role="button" class="likes" data-liked="false">${this.likes} <i aria-label="likes" class="fa-regular fa-heart"></i></div>
         </div>
         </article>
         `
@@ -127,11 +127,11 @@ class Video {
      */
     createHTML() {
         return `
-        <article class="card paused-video" data-date="${this.date}" data-title="${this.title}" data-likes=${this.likes}>
-        <video tabindex="0" aria-label="${this.title}" role="Video link" class="media" title="${this.title}" src="./assets/images/${getPhotographerName(this.photographerId)}/${this.src}" loop ></video>
+        <article class="card" data-date="${this.date}" data-title="${this.title}" data-likes=${this.likes}>
+        <a tabindex="0" class="media-link paused-video"><video class="media" aria-label="${this.title}" title="${this.title}" src="./assets/images/${getPhotographerName(this.photographerId)}/${this.src}" loop ></video></a>
         <div class="gallery-info">
-        <h2 role="Text" tabindex="0">${this.title}</h2>
-        <div tabindex="0" role="image" aria-label="likes" class="likes" data-liked="false">${this.likes} <i class="fa-regular fa-heart"></i></div>
+        <h2 tabindex="0">${this.title}</h2>
+        <div tabindex="0" role="button" class="likes" data-liked="false">${this.likes} <i aria-label="likes" class="fa-regular fa-heart"></i></div>
         </div>
         </article>
         `
@@ -145,22 +145,22 @@ class Video {
 const getPhotographerName = (id) => {
     switch(id) {
         case 243:
-        return "Mimi Keel";
+        return "Mimi_Keel";
         break;
         case 930:
-        return "Ellie-Rose Wilkens";
+        return "Ellie-Rose_Wilkens";
         break;
         case 82:
-        return "Tracy Galindo";
+        return "Tracy_Galindo";
         break;
         case 527:
-        return "Nabeel Bradford";
+        return "Nabeel_Bradford";
         break;
         case 925:
-        return "Rhode Dubois";
+        return "Rhode_Dubois";
         break;
         case 195:
-        return "Marcel Nikolic";
+        return "Marcel_Nikolic";
         break;
         default:
         return "Error: Wrong ID";

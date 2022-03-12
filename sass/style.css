@@ -7254,6 +7254,10 @@ h1 {
   margin-right: 100px;
 }
 
+button, a {
+  cursor: pointer;
+}
+
 .logo {
   height: 50px;
   margin-left: 100px;
@@ -7329,9 +7333,6 @@ h1 {
   width: 350px;
   aspect-ratio: 1/1;
   object-fit: cover;
-}
-.gallery-display .card .media {
-  cursor: pointer;
 }
 .gallery-display .gallery-info {
   display: flex;
@@ -7445,9 +7446,6 @@ h1 {
   background: transparent;
   border: none;
 }
-#lightbox button, #lightbox a {
-  cursor: pointer;
-}
 #lightbox #closeLB {
   position: absolute;
   top: 140px;
@@ -7476,9 +7474,6 @@ h1 {
 }
 #lightbox #mediaLB .gallery-info {
   margin-top: 2rem;
-}
-#lightbox .likes {
-  display: none;
 }
 
 #contact_modal {

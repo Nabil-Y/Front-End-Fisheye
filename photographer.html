@@ -19,12 +19,11 @@
       </nav>
     </header>
     <main id="main">
-      <div class="photograph-header">
-      </div>
+      <section class="photograph-header"></section>
       <section class="gallery">
         <div class="filter">
-          <label for="filter-select" role="Input label" id="filter-label">Trier par</label>
-          <select role="Select menu" aria-labelledby="filter-label" name="filters" id="filter-select">
+          <label for="filter-select" id="filter-label">Trier par</label>
+          <select aria-labelledby="filter-label" name="filters" id="filter-select">
               <option selected value="Popularité">Popularité</option>
               <option value="Date">Date</option>
               <option value="Titre">Titre</option>
@@ -32,47 +31,47 @@
         </div>
         <div class="gallery-display"></div>
       </section>
-      <section class="sticky" tabindex="0" role="text">
+      <div class="sticky" tabindex="0">
         <div class="center-all">
           <div id="like-counter"></div>
           <i class="fa-solid fa-heart"></i>
         </div>
         <div id="price"></div>
-      </section>
+      </div>
     </main>
     <div id="contact_modal" role="dialog" aria-hidden="true" tabindex="0">
 			<div class="modal">
 				<header>
-          <h2 role="Heading (h2)" id="contact-title" tabindex="0"></h2>
-          <button tabindex="0" role="button" aria-label="Close Contact form" id="closeModal"><img class="white" src="./assets/icons/close.svg" alt="Close contact form button" /></button>
+          <h2 id="contact-title" tabindex="0"></h2>
+          <button tabindex="0" aria-label="Close Contact form" id="closeModal"><img class="white" src="./assets/icons/close.svg" alt="Close contact form button" /></button>
         </header>
 				<form id="contact-form">
 					<div>
-						<label role="Label" for="firstName" id="firstNameLabel">Prénom</label>
+						<label for="firstName" id="firstNameLabel">Prénom</label>
 						<input class="input" id="firstName" name="firstName" aria-labelledby="firstNameLabel"/>
 					</div>
           <div>
-						<label role="Label" for="lastName" id="lastNameLabel">Nom</label>
+						<label for="lastName" id="lastNameLabel">Nom</label>
 						<input class="input" id="lastName" name="lastName" aria-labelledby="lastNameLabel"/>
 					</div>
           <div>
-						<label role="Label" for="email" id="emailLabel">Email</label>
+						<label for="email" id="emailLabel">Email</label>
 						<input class="input" id="email" name="email" aria-labelledby="emailLabel"/>
 					</div>
           <div>
-						<label role="Label" for="message" id="messageLabel">Votre message</label>
+						<label for="message" id="messageLabel">Votre message</label>
 						<textarea class="input" id="message" name="message" aria-labelledby="messageLabel"></textarea>
 					</div>
-          <button role="button" aria-label="Send" class="contact_button" type="submit">Envoyer</button>
+          <button aria-label="Send" class="contact_button" type="submit">Envoyer</button>
 				</form>
 			</div>
 		</div>
     <div id="lightboxmodal" role="dialog" aria-label="media closeup view" aria-hidden="true" tabindex="0">
       <div id="lightbox">
-        <button role="Button" aria-label="Close dialog" id="closeLB"><img src="./assets/icons/close.svg" alt="Close lightbox button" /></button>
-        <a tabindex="0" role="Link" aria-label="Previous Media" id="prevLB"><img class="horizontal-reverse" src="./assets/icons/arrow.svg" alt="Previous media button" /></a>
+        <button aria-label="Close dialog" id="closeLB"><img src="./assets/icons/close.svg" alt="Close lightbox button" /></button>
+        <a tabindex="0" aria-label="Previous Media" id="prevLB"><img class="horizontal-reverse" src="./assets/icons/arrow.svg" alt="Previous media button" /></a>
         <div id="mediaLB"></div>
-        <a tabindex="0" role="Link" aria-label="Next media" id="nextLB"><img src="./assets/icons/arrow.svg" alt="Next media button" /></a>
+        <a tabindex="0" aria-label="Next media" id="nextLB"><img src="./assets/icons/arrow.svg" alt="Next media button" /></a>
       </div>
     </div>
     <script src="./scripts/factories/photographerFactory.js"></script>

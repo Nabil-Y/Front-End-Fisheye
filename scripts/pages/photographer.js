@@ -154,10 +154,9 @@ const addKeyboardEvents = () => {
                 }
             break;
             case "Enter":
-                // Check if active element is not a button to prevent double clicks
-                if (document.activeElement.getAttribute("role") !== "button") {
-                    document.activeElement.click();
-                }
+                // Cancel the default action to prevent double clicks
+                event.preventDefault();
+                document.activeElement.click();
             default:
             return '';
             break;

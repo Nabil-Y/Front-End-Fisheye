@@ -20,10 +20,6 @@
         border: none;
     }
 
-    button, a {
-        cursor: pointer;
-    }
-
     #closeLB {
         position: absolute;
         top: 140px;
@@ -59,9 +55,5 @@
         .gallery-info {
             margin-top: 2rem;
         }
-    }
-
-    .likes {
-        display: none;
     }
 }

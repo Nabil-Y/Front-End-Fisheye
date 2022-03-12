@@ -9,7 +9,7 @@ let currentIndex = 0;
  * Create Lightbox events
  */
 const addLightboxEvents = () => {
-    document.querySelectorAll(".media").forEach( media => media.addEventListener("click", (event) => {
+    document.querySelectorAll(".media-link").forEach( media => media.addEventListener("click", (event) => {
         openLightbox(event);
     }) );
 
@@ -27,11 +27,13 @@ const addLightboxEvents = () => {
 const openLightbox = (event) => {
     // Store current gallery elements in node list
     medias = document.querySelectorAll("article");
+    console.log(medias)
     
     //Check current index of media clicked
-    const url = event.target.attributes.src.value;
+    console.log(event.currentTarget);
+    const url = event.currentTarget.firstElementChild.attributes.src.value;
     medias.forEach( (media,index) => {
-        if (media.firstElementChild.attributes.src.value === url) {
+        if (media.firstElementChild.firstElementChild.attributes.src.value === url) {
             currentIndex = index;
         }
     })
@@ -40,7 +42,7 @@ const openLightbox = (event) => {
     document.getElementById("lightboxmodal").style.display = "block";
     document.getElementById("lightboxmodal").setAttribute("aria-hidden", "false");
     document.getElementById("mediaLB").appendChild(medias[currentIndex].cloneNode(true));
-    prepareNewMediaLB();
+    newMediaCheckInLB();
     hideBackgroundContent();
 }
 
@@ -68,7 +70,7 @@ const changeMedia = (order) => {
         currentIndex === medias.length - 1 ? currentIndex = 0 : currentIndex += 1;
     }
     document.getElementById("mediaLB").appendChild(medias[currentIndex].cloneNode(true));
-    prepareNewMediaLB();
+    newMediaCheckInLB();
 }
 
 ///////////////////////////////////////////
@@ -97,26 +99,34 @@ const addVideoLightboxEvents = () => {
  */
 const checkForVideoInLB = () => {
     if (document.querySelectorAll("#mediaLB video").length === 1) {
-        addVideoLightboxEvents()
+        addVideoLightboxEvents();
     };
 }
 
 /**
- * Change ARIA role for media imported in lightbox
+ * Event function to remove link and keep content inside to display in lighbox media
  */
-const changeMediaAriaRole = () => {
-    const currentMedia = document.querySelector("#mediaLB article").firstElementChild;
-    currentMedia.setAttribute("role", currentMedia.getAttribute("role").slice(0,-5) );
+const removeLinkInLB = () => {
+    const link = document.querySelector("#mediaLB .media-link")
+    link.replaceWith(link.firstElementChild);
+
+    // Set tabindex = 0 for img in lighbox
+    if (document.querySelectorAll("#mediaLB img").length === 1) {
+        document.querySelector("#mediaLB img").setAttribute("tabindex", "0");
+    };
 }
 
 /**
- * Function to perform checks when a new Media is displayed in the lightbox
+ * Event function to hide likes for eyes and screen readers
  */
-const prepareNewMediaLB = () => {
-    checkForVideoInLB();
-    changeMediaAriaRole();
+const hideLikesinLB = () => {
+    const likes = document.querySelector("#mediaLB .likes");
+    likes.style.display = "none";
+    likes.setAttribute("aria-hidden", "true");
 }
 
-
-
-
+const newMediaCheckInLB = () => {
+    checkForVideoInLB();
+    removeLinkInLB();
+    hideLikesinLB();
+}
