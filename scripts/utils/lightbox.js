@@ -86,47 +86,39 @@ const toggleVideo = () => {
     video.parentElement.classList.toggle("paused-video");
 }
 
-/**
- * Event function launched when video is displayed in lightbox
- */
-const addVideoLightboxEvents = () => {
-    toggleVideo();
-    document.querySelector("#mediaLB video").addEventListener("click", toggleVideo);
-}
 
 /**
- * Event function to check if a video is displayed in lightbox
+ * Event function to check what type of media is displayed in lightbox and act accordingly
  */
-const checkForVideoInLB = () => {
+const checkWhatMediaInLB = () => {
+    // Add video events if a video is in the lighbox
     if (document.querySelectorAll("#mediaLB video").length === 1) {
-        addVideoLightboxEvents();
+        toggleVideo();
+        document.querySelector("#mediaLB video").addEventListener("click", toggleVideo);
     };
-}
 
-/**
- * Event function to remove link and keep content inside to display in lighbox media
- */
-const removeLinkInLB = () => {
-    const link = document.querySelector("#mediaLB .media-link")
-    link.replaceWith(link.firstElementChild);
-
-    // Set tabindex = 0 for img in lighbox
+    // Add tabindex = 0 if an image is in the lighbox
     if (document.querySelectorAll("#mediaLB img").length === 1) {
         document.querySelector("#mediaLB img").setAttribute("tabindex", "0");
     };
 }
 
 /**
- * Event function to hide likes for eyes and screen readers
+ * Event function to change cloned media for better accessibility in lighbox
  */
-const hideLikesinLB = () => {
+const changeMediaForLB = () => {
+    // Remove link and keep content inside to display in lighbox media
+    const link = document.querySelector("#mediaLB .media-link")
+    link.replaceWith(link.firstElementChild);
+
+    // Hide likes for eyes and screen readers in lightbox
     const likes = document.querySelector("#mediaLB .likes");
     likes.style.display = "none";
     likes.setAttribute("aria-hidden", "true");
 }
 
+
 const newMediaCheckInLB = () => {
-    checkForVideoInLB();
-    removeLinkInLB();
-    hideLikesinLB();
+    checkWhatMediaInLB();
+    changeMediaForLB();
 }
