@@ -44,20 +44,19 @@
 }
 
 .gallery {
-    margin: 50px 100px;
     @extend .center-all;
     flex-direction: column;
 
     .filter {
         align-self: flex-start;
-        margin-bottom: 2rem;
+        margin: 50px 100px;
     }
 }
 
 .gallery-display {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px 100px;
     color: $primary-color;
 
     h2 {
@@ -69,12 +68,10 @@
         @extend .center-all;
         flex-direction: column;
         width: max(30%,350px);
-        aspect-ratio: 1 / 1;
-        margin-top: 3rem;
 
         img,video {
+            height: 300px;
             width: 350px;
-            aspect-ratio: 1 / 1;
             object-fit: cover;
         }
     }

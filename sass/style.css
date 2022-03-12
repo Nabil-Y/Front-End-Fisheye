@@ -7305,18 +7305,17 @@ button, a {
 }
 
 .gallery {
-  margin: 50px 100px;
   flex-direction: column;
 }
 .gallery .filter {
   align-self: flex-start;
-  margin-bottom: 2rem;
+  margin: 50px 100px;
 }
 
 .gallery-display {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 50px 100px;
   color: #901C1C;
 }
 .gallery-display h2 {
@@ -7326,12 +7325,10 @@ button, a {
 .gallery-display .card {
   flex-direction: column;
   width: max(30%, 350px);
-  aspect-ratio: 1/1;
-  margin-top: 3rem;
 }
 .gallery-display .card img, .gallery-display .card video {
+  height: 300px;
   width: 350px;
-  aspect-ratio: 1/1;
   object-fit: cover;
 }
 .gallery-display .gallery-info {
@@ -7395,7 +7392,7 @@ button, a {
 
 .photographer_section {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: 70px;
   margin-top: 100px;
 }
