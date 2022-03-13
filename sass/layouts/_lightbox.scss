@@ -55,5 +55,11 @@
         .gallery-info {
             margin-top: 2rem;
         }
+
+        .paused-video {
+            &:after {
+                transform: translate(-50%,-65%);
+            }
+        }
     }
 }
