@@ -7370,7 +7370,7 @@ button, a {
   transform: translate(-50%, -50%);
   width: 240px;
   height: 240px;
-  background: url("../../assets/images/play_button.png");
+  background: url("/assets/images/play_button.png"), url("assets/images/play_button.png");
   pointer-events: none;
 }
 
